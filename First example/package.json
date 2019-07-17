@@ -1,0 +1,6 @@
+{
+    "name": "test-some-data",
+    "dependencies": {
+        "faker": "^4.1.0"
+    }
+}
