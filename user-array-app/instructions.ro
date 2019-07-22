@@ -1,0 +1,49 @@
+# Pentru a crea o aplicatie simpla node.js 
+# care va genera un "Array" cu utilizatori
+# urmati pasii:
+    * Creati un folder numit "user-array-app"
+    * Deschideti-l in redactor ca fodler activ
+    * Rulati in linia de comanda "npm init",
+      acesta va starta un generator interactiv
+      datorita caruia veti putea genera "package.json" - pasaportul aplicatiei
+      (package.json joaca un rol important in descrierea aplicatiei, si permite organizarea
+      corecta a dependentelor, a script-urilor de optimizare, automatizare, etc...)
+
+    * In procesul generarii in package.json va aparea o inscriptie care mentionaza denumirea
+      scriptului principal al aplicatiei (de ex. "main" : "index.js" - caz in care acest fisier
+      este considerat principal)   
+    * Creati tot aici fisierul "app.js" si schimbati inregistrarea "main" din package.json 
+      ca sa corespunda. "app.js" va fi considerat scriptul principal in aplicatia dvs
+    * in "app.js" startati cu urmatorul cod:
+      
+      var faker = require('faker')
+      var users = []
+
+    * prima linie de cod va instructiona node.js sa incarce modulul "faker", la moment acesta lipseste din sistem
+      pentru a solutiona aceasta situatie rulati "npm install faker" in mapa curenta. Aceasta va instala 
+      modulul indicat in proiectul vostru curent, totodata va adauga automat o inregistrare in sectiunea "dependencies"
+      in package.json
+    * raspundeti la intrebarile:
+       - ce rol joaca sectiunea "dependencies"?
+       - ce reprezinta cifrele care sunt in drept cu "faker" : "???"
+    
+    * Raspundeti la intrebarea: 
+        - In ce moment se va stopa urmatoarea constructie repetitiva?
+
+      while( users.length < 50 ){
+
+      }   
+
+    * Utilizand constructia sus-mentionata si documentatia pentru modulul faker (https://github.com/marak/Faker.js/)
+      umpleti lista "users" cu 50 de inregistrari fiecare din care contine obiectul cu structura:
+        {
+            "fullname" : valoare generata prin faker,
+            "email" : valoare generata prin faker
+        }  
+
+          
+    * Utilizand console.log() si Array.forEach( cu arrow function ), afisati
+      lista de utilizatori in urmatorul format
+      > 1. First Name, first@email.test
+      > 2. Second Name, second@email.test
+      > 3. ...
