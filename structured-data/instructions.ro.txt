@@ -1,0 +1,25 @@
+# initiati o noua aplicatie in aceasta mapa:
+  * creati package.json (npm init)
+  * creati un fisier index.js
+
+# adaugati urmatorul cod in index.js
+
+  var products = [
+    { name: "Product 1", price: { amount: 100, currency: "USD"  }},
+    { name: "Product 2", price: { amount: 200, currency: "USD"  }},
+    { name: "Product 3", price: { amount: 300, currency: "USD"  }}
+  ];
+
+  function showProducts( procuts_list ){
+    
+  }
+
+# completati codul functiei showProducts() in asa mod incat
+# adaugand urmatorul rand de cod la sfarsitul aplicatiei
+
+  showProducts( products );
+
+# sa obtineti asa un rezultat in consola:
+  >   Product 1 | 100 USD
+  >   Product 2 | 200 USD
+  >   Product 3 | 300 USD
