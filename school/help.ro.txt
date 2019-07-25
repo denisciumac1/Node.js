@@ -1,0 +1,27 @@
+# respectand structura proiectului "school"
+# faceti urmatoarele:
+
+* in modulul modules/education.js completati logica claselor astfel incat
+  - un obiect de tip Student sa contina numele (name) si 
+    anul (year) de nastere
+  - un obiect de tip Group sa contina numele (name) si 
+    anul (grade) de studii
+    constructorul acestui obiect trebuie sa initieze un Array
+    care sa contina eventual lista de studenti (students)
+    
+    metoda "addStudent" adauga un student in array-ul (students)
+    din interiorul grupei
+
+  - un obiect de tip University trebuie sa contina denumirea (name)
+    si constructorul sa initieze un Array cu lista de grupe (groups)  
+    
+    metoda "addGroup" adauga o grupa in array-ul (groups)
+    din interiorul universitatii
+
+* exportati toate clasele din modulul modules/education.js
+* importati modulul modules/education.js in index.js 
+* creati un obiect de tip University, care sa contina 
+  doua grupe cu cate 3-4 studenti fiecare
+* verificati prin console.log()  ierarhia obtinuta
+    
+  
