@@ -12,12 +12,12 @@ fs.watch("./images/original", function() {
 
 function genThumb(file_name) {
     if (`${file_name}`.endsWith("jpg")) {
-        sharp(`./images/original/${file_name}`)
-            .resize(200, 200)
-            .toFile(`./images/thumbs/jpg/-sm-${file_name}`)
-    } else {
-        sharp(`./images/original/${file_name}`)
-            .resize(200, 200)
-            .toFile(`./images/thumbs/png/-xm-${file_name}`)
+        var direction = "jpg"
+    } else if (`${file_name}`.endsWith("png")) {
+        var direction = "png"
     }
+    sharp(`./images/original/${file_name}`)
+        .resize(200, 200)
+        .toFile(`./images/thumbs/${direction}/-sm-${file_name}`)
+
 }
