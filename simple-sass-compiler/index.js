@@ -12,7 +12,7 @@ fs.watchFile("./src/style.scss", function() {
 function compileSCSS() {
     var result = sass.renderSync({
             file: './src/style.scss',
-            outputStyle: 'compressed', // Stilul compresat!
+            outputStyle: 'compressed', // Stilul compresat!!
 
         })
         // console.log(result.css.toString())
