@@ -1,6 +1,7 @@
 var http = require("http")
 var fs = require("fs")
 var querystring = require("querystring")
+var nodemailer = require('nodemailer');
 
 var server = http.createServer((req, res) => {
 
@@ -28,6 +29,30 @@ var server = http.createServer((req, res) => {
         ///////////////////////////////////////
 
         res.write(fs.readFileSync("thanks.html"))
+            //////////////////////////////////////
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'denisciumac@gmail.com',
+                pass: '******'
+            }
+        });
+
+        var mailOptions = {
+            from: 'denisciumac@gmail.com',
+            to: 'denisciumac@gmail.com',
+            subject: 'Sending Email using Node.js',
+            text: 'That was easy!'
+        };
+
+        transporter.sendMail(mailOptions, function(error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+        //////////////////////////////////////
     }
 
     res.end()
