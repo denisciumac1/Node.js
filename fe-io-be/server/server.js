@@ -1,34 +1,31 @@
-var http = require("http")
-var fs   = require("fs")
+var http = require('http');
+var fs = require('fs');
 
-var users = ["Alex", "Jason", "Jasie", "Arnold"]
+var users = ['John', 'Jessie', 'Alex', 'Arnold', 'Julia'];
 
+var server = http.createServer((req, res) => {
 
-var server = http.createServer( (req, res) => {
-if(req.url == "/"){
-    res.write(fs.readFileSync("../client/index.html"))
-    
-}
-if(req.url == "/client.js"){
-    res.write(fs.readFileSync("../client/client.js"))
-    
-}
-if(req.url.indexOf("/search") !=-1){
-    var text = req.url.split("/").pop()
-    var results = []
-    users.forEach( u=>{
-        if(u.toLowerCase().startsWith(text)){
-            results.push(u)
-        }
-    })
-    console.log(results)
-    res.write(JSON.stringify(results))
-    
-}
+    if (req.url == "/") {
+        res.write(fs.readFileSync('../client/index.html'));
+    } else if (req.url == "/client.js") {
+        res.write(fs.readFileSync('../client/client.js'));
+    } else if (req.url.indexOf("/search") != -1) {
+        var results = [];
+        var text = req.url.split("/").pop();
+
+        users.forEach(user => {
+            if (user.toLowerCase().startsWith(text)) {
+                results.push(user);
+            }
+        })
+        console.log(results);
 
 
- res.end()   
-})
+        // console.log(text);
+        res.write(JSON.stringify(results));
+    }
 
-server.listen(3000)
+    res.end();
+});
 
+server.listen(3000);
