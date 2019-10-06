@@ -3,15 +3,11 @@
 //conectam un modul 
 const fs = require("fs")
 
-function loadData(){
-
-//    var data = fs.readFileSync("./server/data.json")
-//    console.log(data.toString())
-
+function loadData(req, res){
   fs.readFile("./server/data.json", function(err, data){
       if(!err){
         console.log (data.toString() )
-        showData()
+        showData(data)
       }else{
           console.log(err)
       }
