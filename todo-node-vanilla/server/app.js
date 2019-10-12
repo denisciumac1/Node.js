@@ -7,12 +7,13 @@ const http = require("http")
 //creeam obiectul serverului
 // http -> 80 000
 // https -> 443
-let obj = {status : "ok"}
+let obj = { status: "ok" }
 
-const server = http.createServer( loadData )
-function jsonHeader(res){
-     res.setHeader("Content-Type", "application/json") 
-     return res
+const server = http.createServer(loadData)
+
+function jsonHeader(res) {
+    res.setHeader("Content-Type", "application/json")
+    return res
 }
 
 // fs.readFile()-> Buffer
@@ -20,41 +21,40 @@ function jsonHeader(res){
 
 // json()-> String
 
-function json(data ) {
+function json(data) {
     data = JSON.stringify(data)
     return data
 }
 
-function parse(data){
+function parse(data) {
     data = JSON.parse(data)
     return data
 }
 
-
-function loadData(req, res){
-    // console.log(req.url) Rootes
-    if(req.url =="/tasks"){
-        fs.readFile("data.json", function(err, data){
+function loadData(req, res) {
+    if (req.url == "/tasks") {
+        fs.readFile("data.json", function(err, data) {
             res = jsonHeader(res)
-            if(!err){
+            if (!err) {
                 var tk = parse(data.toString())
                 res.end(json(tk.tasks))
-            }else{
-                res.end(json( err ))
+            } else {
+                res.end(json(err))
             }
-            
+        })
+    } else if (req.url == "/users") {
+        fs.readFile("data.json", function(err, data) {
+            res = jsonHeader(res)
+            if (!err) {
+                var us = parse(data.toString())
+                res.end(json(us.users))
+            } else {
+                res.end(json(err))
+            }
         })
 
-    }else if(req.url=="/users"){
-        // user din Json de afisat
-
-    }else{
-        res.end(json({status: "Not Found"}))
+    } else {
+        res.end(json({ status: "Not Found" }))
     }
-   
-     
-  }
-server.listen( 3000)
-
-
-
+}
+server.listen(3000)
